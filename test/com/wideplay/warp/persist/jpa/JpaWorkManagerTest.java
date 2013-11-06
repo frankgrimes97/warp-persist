@@ -65,8 +65,8 @@ public class JpaWorkManagerTest {
         injector.getInstance(EntityManagerFactory.class).close();
     }
 
-    
-    @Test
+
+    //@Test
     public void workManagerSessionTest() {
         injector.getInstance(WorkManager.class).beginWork();
         try {
@@ -118,7 +118,7 @@ public class JpaWorkManagerTest {
 
         @Transactional
         public void runOperationInTxnError() {
-            
+
             JpaTestEntity testEntity = new JpaTestEntity();
 
             testEntity.setText(UNIQUE_TEXT_3 + "transient never in db!" + hashCode());

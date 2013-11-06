@@ -29,7 +29,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.context.ManagedSessionContext;
+import org.hibernate.context.internal.ManagedSessionContext;
 import org.hibernate.criterion.Expression;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -70,7 +70,7 @@ public class ManualLocalTransactionsTest {
                 .start();
     }
 
-    
+
     @AfterClass
     void post() {
         injector.getInstance(SessionFactory.class).close();
@@ -78,7 +78,7 @@ public class ManualLocalTransactionsTest {
 
     @Test
     public void testSimpleCrossTxnWork() {
-        org.hibernate.classic.Session session1 = injector.getInstance(SessionFactory.class).openSession();
+        org.hibernate.Session session1 = injector.getInstance(SessionFactory.class).openSession();
         ManagedSessionContext.bind(session1);
         HibernateTestEntity entity = injector.getInstance(TransactionalObject.class).runOperationInTxn();
         injector.getInstance(ManualLocalTransactionsTest.TransactionalObject.class).runOperationInTxn2();

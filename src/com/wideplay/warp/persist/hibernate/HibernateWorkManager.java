@@ -22,7 +22,7 @@ import com.wideplay.warp.persist.WorkManager;
 import net.jcip.annotations.Immutable;
 import net.jcip.annotations.ThreadSafe;
 import org.hibernate.SessionFactory;
-import org.hibernate.context.ManagedSessionContext;
+import org.hibernate.context.internal.ManagedSessionContext;
 
 /**
  * @author Dhanji R. Prasanna (dhanji gmail com)

@@ -196,7 +196,7 @@ public class JpaDynamicFindersTest {
         assert result.getId().equals(id) : "attribs not persisted correctly";
     }
 
-    @Test(expectedExceptions = ClassCastException.class)
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void testArrayParamemter() {
 
         //set up some test data
@@ -211,7 +211,7 @@ public class JpaDynamicFindersTest {
 
         assert result.getId().equals(id) : "attribs not persisted correctly";
     }
-    
+
     public static class FinderDao {
         private final EntityManager em;
 
@@ -229,7 +229,7 @@ public class JpaDynamicFindersTest {
 
             entity = new JpaTestEntity();
             entity.setText(TEXT_2);
-            
+
             em.persist(entity);
 
             return entity;
